@@ -1,0 +1,23 @@
+name: bashnovustools
+base: core24
+version: '0.1'
+summary: BashNovusTools providing tools for deployment tasks and operations.
+description: |
+  A collection of BashNovusTools scripts packaged as a snap.
+  Includes multiple scripts like upgrade.sh.
+
+grade: devel
+confinement: devmode
+
+apps:
+  upgrade:
+    command: bin/update-ubuntu.sh
+
+
+parts:
+  scripts:
+    plugin: dump
+    source: .
+    organize:
+      upgrade.sh: bin/update-ubuntu.sh
+    stage-packages: []
