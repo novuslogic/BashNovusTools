@@ -4,7 +4,8 @@ version: '0.1'
 summary: BashNovusTools providing tools for deployment tasks and operations.
 description: |
   A collection of BashNovusTools scripts packaged as a snap.
-  Includes multiple scripts like upgrade.sh.
+  Includes multiple scripts like upgrade.sh, install-docker_engine.sh,
+  install-docker-compose.sh, and refresh-env.sh.
 
 grade: devel
 confinement: devmode
@@ -12,7 +13,23 @@ confinement: devmode
 apps:
   upgrade:
     command: bin/update-ubuntu.sh
+    environment:
+      PATH: "$SNAP/bin:$PATH"
 
+  install-docker-engine:
+    command: bin/install-docker_engine.sh
+    environment:
+      PATH: "$SNAP/bin:$PATH"
+
+  install-docker-compose:
+    command: bin/install-docker-compose.sh
+    environment:
+      PATH: "$SNAP/bin:$PATH"
+
+  refresh-env:
+    command: bin/refresh-env.sh
+    environment:
+      PATH: "$SNAP/bin:$PATH"
 
 parts:
   scripts:
@@ -20,4 +37,7 @@ parts:
     source: .
     organize:
       upgrade.sh: bin/update-ubuntu.sh
+      install-docker_engine.sh: bin/install-docker_engine.sh
+      install-docker-compose.sh: bin/install-docker-compose.sh
+      refresh-env.sh: bin/refresh-env.sh
     stage-packages: []
