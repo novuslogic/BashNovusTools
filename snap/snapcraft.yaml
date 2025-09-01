@@ -17,7 +17,7 @@ apps:
       PATH: "$SNAP/bin:$PATH"
 
   install-docker-engine:
-    command: bin/install-docker_engine.sh
+    command: bin/install-docker-engine.sh
     environment:
       PATH: "$SNAP/bin:$PATH"
 
@@ -37,7 +37,7 @@ parts:
     source: .
     organize:
       upgrade.sh: bin/update-ubuntu.sh
-      install-docker_engine.sh: bin/install-docker_engine.sh
+      install-docker_engine.sh: bin/install-docker-engine.sh
       install-docker-compose.sh: bin/install-docker-compose.sh
       refresh-env.sh: bin/refresh-env.sh
     stage-packages: []
