@@ -4,7 +4,7 @@
 # Installs or updates Docker Compose to the latest release from GitHub
 
 set -e
-
+ 
 echo "Checking latest version of Docker Compose..."
 
 # Fetch the latest release tag from GitHub

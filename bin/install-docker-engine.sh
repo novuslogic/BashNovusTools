@@ -5,7 +5,7 @@ if command -v docker >/dev/null 2>&1; then
     echo "Docker is installed."
 	exit 1
 fi
-
+ 
 set -e
 # Docker Engine for Linux installation script.
 #
