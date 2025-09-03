@@ -40,7 +40,6 @@ parts:
       install-docker-engine.sh: bin/install-docker-engine.sh
       install-docker-compose.sh: bin/install-docker-compose.sh
       refresh-env.sh: bin/refresh-env.sh
-    stage-packages: []
     override-build: |
       chmod 755 $SNAPCRAFT_PART_SRC/*.sh
       snapcraftctl build
