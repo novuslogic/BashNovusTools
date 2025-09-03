@@ -1,0 +1,66 @@
+# .github/workflows/build-snap.yml
+name: Build Snap (Snapcraft)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build snap (amd64)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      # Builds the snap in an LXD container; auto-installs/configures LXD & Snapcraft
+      - name: Snapcraft build
+        id: build
+        uses: canonical/action-build@v1
+        with:
+          # Path to the folder containing snap/snapcraft.yaml; use "." if at repo root
+          path: .
+          # You can pass extra args to snapcraft if needed:
+          # snapcraft-args: "--verbosity=brief"
+
+      - name: Upload built snap
+        uses: actions/upload-artifact@v4
+        with:
+          name: snap
+          path: ${{ steps.build.outputs.snap }}
+
+  # --- Optional: publish straight to the Snap Store after a successful build ---
+  # Enable by removing the leading "#" on the next lines and
+  # adding the SNAPCRAFT_STORE_CREDENTIALS secret in your repo settings.
+  # See: https://github.com/canonical/action-publish
+  #
+  # publish:
+  #   name: Publish to Snap Store (edge)
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #
+  #   steps:
+  #     - name: Download built snap
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: snap
+  #         path: dist
+  #
+  #     - name: Find snap file
+  #       id: find
+  #       run: echo "SNAP=$(ls -1 dist/*.snap | head -n1)" >> "$GITHUB_OUTPUT"
+  #
+  #     - name: Publish to store (release: edge)
+  #       uses: canonical/action-publish@v1
+  #       with:
+  #         snap: ${{ steps.find.outputs.SNAP }}
+  #         release: edge
+  #         store-credentials: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
