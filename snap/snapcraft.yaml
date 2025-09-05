@@ -41,5 +41,5 @@ parts:
       install-docker-compose.sh: bin/install-docker-compose.sh
       refresh-env.sh: bin/refresh-env.sh
     override-build: |
-      chmod 755 $SNAPCRAFT_PART_SRC/*.sh
       snapcraftctl build
+      chmod 755 $SNAPCRAFT_PART_INSTALL/bin/*.sh
