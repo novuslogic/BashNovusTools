@@ -33,3 +33,9 @@ snapcraft register --private bashnovustools
 
 https://github.com/snapcore
 
+
+### Create SNAPCRAFT_STORE_CREDENTIALS
+
+```
+snapcraft export-login --snaps bashnovustools --acls package_access,package_push,package_update,package_release --channels edge,candidate --expires 2026-12-31 snap.login
+```

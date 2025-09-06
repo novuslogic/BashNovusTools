@@ -34,6 +34,16 @@ jobs:
         with:
           name: snap
           path: ${{ steps.build.outputs.snap }}
+      - name: Publish to store 
+        uses: canonical/action-publish@v1
+        
+        with:
+          snap: ${{ steps.find.outputs.SNAP }}
+          release: none
+          store-credentials: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+
+
+
 
   # --- Optional: publish straight to the Snap Store after a successful build ---
   # Enable by removing the leading "#" on the next lines and
