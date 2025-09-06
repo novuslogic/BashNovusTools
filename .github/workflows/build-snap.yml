@@ -24,20 +24,20 @@ jobs:
         id: build
         uses: canonical/action-build@v1
         with:
-          # Path to the folder containing snap/snapcraft.yaml; use "." if at repo root
+          # Path to the folder containing snap/snapcraft.yaml
           path: .
-          # You can pass extra args to snapcraft if needed:
-          # snapcraft-args: "--verbosity=brief"
 
       - name: Upload built snap
         uses: actions/upload-artifact@v4
         with:
           name: snap
           path: ${{ steps.build.outputs.snap }}
-      - name: Publish to store 
+
+      # Only publish to store on push to main
+      - name: Publish to store
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: canonical/action-publish@v1
-        
         with:
-          snap: ${{ steps.find.outputs.SNAP }}
+          snap: ${{ steps.build.outputs.snap }}
           release: edge
-          store-credentials: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+          store_login: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
