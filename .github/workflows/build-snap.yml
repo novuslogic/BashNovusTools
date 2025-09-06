@@ -39,38 +39,5 @@ jobs:
         
         with:
           snap: ${{ steps.find.outputs.SNAP }}
-          release: none
+          release: edge
           store-credentials: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-
-
-
-
-  # --- Optional: publish straight to the Snap Store after a successful build ---
-  # Enable by removing the leading "#" on the next lines and
-  # adding the SNAPCRAFT_STORE_CREDENTIALS secret in your repo settings.
-  # See: https://github.com/canonical/action-publish
-  #
-  # publish:
-  #   name: Publish to Snap Store (edge)
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: read
-  #
-  #   steps:
-  #     - name: Download built snap
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: snap
-  #         path: dist
-  #
-  #     - name: Find snap file
-  #       id: find
-  #       run: echo "SNAP=$(ls -1 dist/*.snap | head -n1)" >> "$GITHUB_OUTPUT"
-  #
-  #     - name: Publish to store (release: edge)
-  #       uses: canonical/action-publish@v1
-  #       with:
-  #         snap: ${{ steps.find.outputs.SNAP }}
-  #         release: edge
-  #         store-credentials: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
