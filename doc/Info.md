@@ -39,3 +39,11 @@ https://github.com/snapcore
 ```
 snapcraft export-login --snaps bashnovustools --acls package_access,package_push,package_update,package_release --channels edge,candidate --expires 2026-12-31 snap.login
 ```
+
+
+### Install edge version
+
+```
+sudo snap install bashnovustools --channel=edge --jailmode
+```
+
