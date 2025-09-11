@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*" # e.g. v1.2.3
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create archive
+        run: |
+          mkdir -p dist
+          VERSION="${GITHUB_REF_NAME}"   # e.g. v1.2.3
+          git archive --format=zip --output="dist/BashNovusTools.${VERSION}.zip" HEAD
+
+      - name: Create Release (auto notes)
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/BashNovusTools.*.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
