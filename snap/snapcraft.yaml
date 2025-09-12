@@ -1,11 +1,11 @@
 name: bashnovustools
 base: core24
-version: '0.1.1'
+version: '0.1.2'
 summary: BashNovusTools providing tools for deployment tasks and operations.
 description: |
   A collection of Bash scripts packaged as a snap package.
   Includes multiple scripts like upgrade.sh, install-docker_engine.sh,
-  install-docker-compose.sh, and refresh-env.sh.
+  install-docker-compose.sh, refresh-env.sh and restart-docker.sh
 
 grade: devel
 confinement: devmode
@@ -26,6 +26,11 @@ apps:
     environment:
       PATH: "$SNAP/bin:$PATH"
 
+  restart-docker:
+    command: bin/restart-docker.sh
+    environment:
+      PATH: "$SNAP/bin:$PATH"    
+
   refresh-env:
     command: bin/refresh-env.sh
     environment:
@@ -39,6 +44,7 @@ parts:
       update-ubuntu.sh: bin/update-ubuntu.sh
       install-docker-engine.sh: bin/install-docker-engine.sh
       install-docker-compose.sh: bin/install-docker-compose.sh
+      restart-docker.sh: bin/restart-docker.sh 
       refresh-env.sh: bin/refresh-env.sh
     override-build: |
       snapcraftctl build
