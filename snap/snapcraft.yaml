@@ -1,6 +1,6 @@
 name: bashnovustools
 base: core24
-version: '0.1.2'
+version: '0.1.2.1'
 summary: BashNovusTools providing tools for deployment tasks and operations.
 description: |
   A collection of Bash scripts packaged as a snap package.

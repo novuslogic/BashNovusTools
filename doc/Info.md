@@ -47,3 +47,16 @@ snapcraft export-login --snaps bashnovustools --acls package_access,package_push
 sudo snap install bashnovustools --channel=edge --jailmode
 ```
 
+## Release with tags
+
+
+
+https://git-scm.com/book/en/v2/Git-Basics-Tagging
+
+### Manual Install
+
+
+```bash
+export DEBIAN_FRONTEND=noninteractive\nsudo apt-get update -y && sudo apt-get install -y libarchive-tools && sudo mkdir -p /etc/bashnovustools && curl -L https://github.com/novuslogic/BashNovusTools/releases/download/v0.1.2/BashNovusTools.v0.1.2.zip -o /tmp/bashnovustools.zip && sudo bsdtar -xf /tmp/bashnovustools.zip -C /etc/bashnovustools && sudo chmod +x /etc/bashnovustools/bin/*.sh && echo 'export PATH=\"/etc/bashnovustools/bin:$PATH\"' | sudo tee /etc/profile.d/bashnovustools.sh
+```
+
