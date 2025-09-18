@@ -749,14 +749,10 @@ do_install() {
 # half the file during "curl | sh"
 do_install
 
-# Add your user to docker group
-sudo usermod -aG docker $USER
 
-# Refresh group membership (log out and back in, or run:)
-newgrp docker
+# Set user - group
+bash update-docker-user-group.sh
 
-sudo usermod -aG docker ubuntu
 
-# Refresh group membership (log out and back in, or run:)
-newgrp docker
+
 

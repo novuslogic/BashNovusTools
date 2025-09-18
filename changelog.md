@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.3
+
+* Add new bash script **update-docker-user-group.sh**
+
 ## v0.1.2.1
 
 * Fixed user security to group install-docker-engine.sh 

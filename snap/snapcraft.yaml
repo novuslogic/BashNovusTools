@@ -1,11 +1,12 @@
 name: bashnovustools
 base: core24
-version: '0.1.2.1'
+version: '0.1.3'
 summary: BashNovusTools providing tools for deployment tasks and operations.
 description: |
   A collection of Bash scripts packaged as a snap package.
-  Includes multiple scripts like upgrade.sh, install-docker_engine.sh,
-  install-docker-compose.sh, refresh-env.sh and restart-docker.sh
+  Includes multiple scripts like upgrade.sh, install-docker_engine.sh, 
+  install-docker-compose.sh, update-docker-user-group.sh,
+  refresh-env.sh and restart-docker.sh
 
 grade: devel
 confinement: devmode
