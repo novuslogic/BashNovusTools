@@ -49,6 +49,9 @@ sudo snap install bashnovustools --channel=edge --jailmode
 
 ## Release with tags
 
+git tag v0.1.3
+
+git push origin --tags
 
 
 https://git-scm.com/book/en/v2/Git-Basics-Tagging
