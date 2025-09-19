@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.3.1
+
+* Fixed snapcraft.yaml 
+
 ## v0.1.3
 
 * Add new bash script **update-docker-user-group.sh**
