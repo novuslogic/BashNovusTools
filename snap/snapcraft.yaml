@@ -9,7 +9,7 @@ description: |
   refresh-env.sh and restart-docker.sh
 
 grade: stable
-confinement: classic
+confinement: strict
 
 apps:
   upgrade-ubuntu:
