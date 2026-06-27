@@ -1,6 +1,6 @@
 # BashNovusTools documentation
 
-[Back to the project front page](../README.md)
+[Back to the project front page](../README.md) · [View the changelog](../changelog.md)
 
 This directory documents the shell scripts distributed in [`bin`](../bin).
 The scripts perform system-level package and Docker administration on Linux and
