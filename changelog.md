@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.0
+
+* New documentation 
+
 ## v0.1.3.1
 
 * Fixed snapcraft.yaml 
