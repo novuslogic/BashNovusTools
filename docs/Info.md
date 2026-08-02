@@ -49,7 +49,7 @@ sudo snap install bashnovustools --channel=edge --jailmode
 
 ## Release with tags
 
-git tag v0.1.3
+git tag v0.1.4
 
 git push origin --tags
 
